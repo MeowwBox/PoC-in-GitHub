@@ -5845,6 +5845,7 @@
 </code>
 
 - [WhiteTPoison100/Discord-CVE-2026-24332-demo](https://github.com/WhiteTPoison100/Discord-CVE-2026-24332-demo)
+- [0cqb/CVE-2026-24332](https://github.com/0cqb/CVE-2026-24332)
 
 ### CVE-2026-24415 (2026-03-03)
 
@@ -10991,6 +10992,7 @@
 - [hui191/cve-2026-43499-aak-an00](https://github.com/hui191/cve-2026-43499-aak-an00)
 - [1ndevelopment/ghostlock-s26](https://github.com/1ndevelopment/ghostlock-s26)
 - [huaguiqi/asus_i005-CVE-2026-43499](https://github.com/huaguiqi/asus_i005-CVE-2026-43499)
+- [zhubaohe123/ghostlock-kit](https://github.com/zhubaohe123/ghostlock-kit)
 
 ### CVE-2026-43500 (2026-05-11)
 
@@ -14871,6 +14873,13 @@
 
 - [Abdivasiyev2008/CVE-2026-71211-exploit](https://github.com/Abdivasiyev2008/CVE-2026-71211-exploit)
 
+### CVE-2026-71294 (2026-08-05)
+
+<code>Cotonti CMS's Comments plugin deserializes user-supplied data without restricting the classes that may be instantiated. In plugins/comments/controllers/actions/CreateAction.php, a POST parameter obtained via (trim-only sanitization) is passed to with no restriction, reachable by any member with write access to comments (the default setting in plugins/comments/comments.setup.php).
+</code>
+
+- [HarshRajSinghania/cotonti-commentswidget-poc](https://github.com/HarshRajSinghania/cotonti-commentswidget-poc)
+
 ### CVE-2026-71300 (2026-08-24)
 
 <code>Improper input validation vulnerability in Apache Camel Atmosphere Websocket component.\n\n\n\nThis issue affects Apache Camel: from 4.0.0 before 4.14.9, from 4.15.0 before 4.18.4, from 4.19.0 before 4.22.0.\n\n\n\nThe camel-atmosphere-websocket producer selects which connected WebSocket peers a message is delivered to through Exchange headers, and the string values of those headers sat outside the Camel namespace: websocket.connectionKey and websocket.connectionKey.list, along with websocket.sendToAll, websocket.eventType and websocket.errorType. WebsocketEndpoint extends ServletEndpoint and so inherits HttpHeaderFilterStrategy, which filters only the Camel and camel prefixes; the dotted names therefore fell outside the filtered namespace and were admitted in both directions by every HTTP-family consumer. In a route bridging an HTTP consumer into an atmosphere-websocket producer, an external sender could supply the list header and take over the producer's dispatch decision. WebsocketProducer.process tests the list header before the single-key header, so an injected value discarded the recipient the route had selected: a notification intended for one connected client could be suppressed, or delivered instead to a different client whose connection key the sender knows. The header need not be a query parameter and need not be supplied as a list literally - Camel's HTTP binding promotes a repeated header name, and a bracketed value, to a List when mapping onto the Exchange - so an ordinary inbound HTTP header is sufficient to reach the list-valued branch. This is distinct from CVE-2026-55993, which concerns the consumer-side query-parameter path in the same component. The behaviour dates back to the introduction of these constants, first released in 2.17.0, and was unchanged until this fix.\n\n\n\nUsers are recommended to upgrade to version 4.22.0, which fixes the issue. If users are on the 4.14.x LTS releases stream, then they are suggested to upgrade to 4.14.9. If users are on the 4.18.x releases stream, then they are suggested to upgrade to 4.18.4. For deployments that cannot upgrade immediately, strip the dispatch headers at the trust boundary before the producer, for example with removeHeaders(“websocket.*”) placed between the HTTP consumer and the atmosphere-websocket producer. Note that the fix renames the header string values into the Camel namespace, which is a breaking change for routes that set them by literal string: routes referencing the WebsocketConstants fields symbolically are unaffected, and the change is documented in the upgrade guides. As defence in depth, do not bridge an untrusted HTTP consumer directly into a WebSocket producer whose dispatch is header-driven without stripping the dispatch namespace first.
@@ -15395,6 +15404,13 @@
 
 ### CVE-2026-77622
 - [Squ1shification/PNGboomer-CVE-2026-77622](https://github.com/Squ1shification/PNGboomer-CVE-2026-77622)
+
+### CVE-2026-77770 (2026-09-10)
+
+<code>The miniOrange 2FA  WordPress plugin before 6.3.1, miniOrange 2FA  WordPress plugin before 19.3 does not require a validated transaction before deleting site options whose names come from unauthenticated request input, allowing any visitor to delete arbitrary options, which can lock every administrator out of the dashboard or deactivate every miniOrange 2FA  WordPress plugin before 6.3.1, miniOrange 2FA  WordPress plugin before 19.3 on the site.
+</code>
+
+- [cflowsec/CVE-2026-77770](https://github.com/cflowsec/CVE-2026-77770)
 
 ### CVE-2026-77771 (2026-09-10)
 
@@ -19206,6 +19222,13 @@
 
 - [pl4tyz/CVE-2025-14611-CentreStack-and-Triofox-full-Poc-Exploit](https://github.com/pl4tyz/CVE-2025-14611-CentreStack-and-Triofox-full-Poc-Exploit)
 
+### CVE-2025-14659 (2025-12-14)
+
+<code>A vulnerability was detected in D-Link DIR-860LB1 and DIR-868LB1 203b01/203b03. Affected is an unknown function of the component DHCP Daemon. The manipulation of the argument Hostname results in command injection. It is possible to launch the attack remotely. The exploit is now public and may be used.
+</code>
+
+- [PeterLinccl/Vulnerability-DLink-CVE-2025-14659](https://github.com/PeterLinccl/Vulnerability-DLink-CVE-2025-14659)
+
 ### CVE-2025-14700 (2025-12-17)
 
 <code>An input neutralization vulnerability in the Webhook Template component of Crafty Controller allows a remote, authenticated attacker to perform remote code execution via Server Side Template Injection.
@@ -20029,6 +20052,7 @@
 - [Abdelrahman0Sayed/CVE-2025-24071](https://github.com/Abdelrahman0Sayed/CVE-2025-24071)
 - [buffertrychar/CVE-2025-24071-POC](https://github.com/buffertrychar/CVE-2025-24071-POC)
 - [Fomovet/cve-2025-24071](https://github.com/Fomovet/cve-2025-24071)
+- [DAEMON-404/PoC-CVE-2025-24071](https://github.com/DAEMON-404/PoC-CVE-2025-24071)
 
 ### CVE-2025-24076 (2025-03-11)
 
